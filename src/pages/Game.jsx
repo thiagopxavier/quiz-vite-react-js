@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import '../styles/Game.css'
+
 function Game() {
   const [timer, setTimer] = useState(5);
   const [points, setPoints] = useState(0);
@@ -40,7 +42,7 @@ function Game() {
   if (timer >= 0) {
     return (
       <>
-        <h1>Começando em {timer} segundos</h1>
+        <h1 className="h1-timer">Começando em {timer}</h1>
         <p>{theme}</p>
       </>
     )
@@ -49,7 +51,7 @@ function Game() {
   if (!quizData[questionIndex]) {
     return (
       <>
-        <h1>
+        <h1 className="h1-theme h1-points">
           Você fez {points} pontos
         </h1>
         <Link to="/themes">
@@ -66,15 +68,17 @@ function Game() {
       <h1 className="h1-theme">{theme}</h1>
 
       <p className="p-question">{quizData[questionIndex].question}</p>
-      {quizData[questionIndex].answers.map((answer, index) => (
-        <button
-          className="btn-answer"
-          key={index}
-          onClick={() => handleButton(answer)}
-        >
-          {answer}
-        </button>
-      ))}
+      <div className="div-btn-answer">
+        {quizData[questionIndex].answers.map((answer, index) => (
+          <button
+            className="btn-answer"
+            key={index}
+            onClick={() => handleButton(answer)}
+          >
+            {answer}
+          </button>
+        ))}
+      </div>
     </>
   );
 }

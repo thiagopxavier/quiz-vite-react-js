@@ -3,8 +3,6 @@ import Home from './pages/Home';
 import Themes from './pages/Themes';
 import Game from './pages/Game';
 
-import './App.css'
-
 function App() {
   return (
     <>

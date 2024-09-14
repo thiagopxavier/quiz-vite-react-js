@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { fetchQuizData } from '../services/quizApi';
 
+import '../styles/Theme.css'
+
 const Themes = () => {
   const [quizData, setQuizData] = useState({});
 
@@ -21,16 +23,17 @@ const Themes = () => {
 
   return (
     <div>
-      <h1>Temas</h1>
-      {Object.keys(quizData).map((theme, index) => (
-        <div key={index}>
+      <h1 >Temas</h1>
+      <div className='div-btn-theme'>
+        {Object.keys(quizData).map((theme, index) => (
           <button
+            key={index}
             onClick={() => handleButton(theme)}
             className='btn-theme'
           >
             {theme}</button>
-        </div>))}
-      <Link to="/"><p>Voltar</p></Link>
+        ))}
+      </div>
     </div>
   );
 };

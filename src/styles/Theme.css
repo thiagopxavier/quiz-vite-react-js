@@ -1,0 +1,22 @@
+.btn-theme {
+  width: 40vw;
+  height: 20vh;
+  padding: 0;
+  margin: auto;
+  margin-top: 20vw;
+}
+
+.div-btn-theme {
+  display: flex;
+}
+
+@media screen and (orientation: landscape) {
+  .btn-theme {
+    width: 30vw;
+    height: 30vh;
+    margin-top: 5vw;
+    font-size: 2em;
+  }
+
+
+}

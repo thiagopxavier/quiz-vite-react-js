@@ -3,16 +3,18 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 .div-main-app {
-  margin-top: 20vh;
+  margin-top: 15vh;
 }
 
 h1 {
   font-size: 4.5em;
-  margin: 0;
+  margin: 10vw auto;
 }
 
 h2 {
