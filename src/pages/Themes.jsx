@@ -23,7 +23,7 @@ const Themes = () => {
 
   return (
     <div>
-      <h1 >Temas</h1>
+      <h1>Temas</h1>
       <div className='div-btn-theme'>
         {Object.keys(quizData).map((theme, index) => (
           <button

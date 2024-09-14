@@ -40,4 +40,13 @@ button:active {
   scale: 1.1;
 }
 
-@media screen and (orientation: landscape) {}
+@media screen and (orientation: landscape) {
+  h1 {
+    margin: auto;
+    margin-top: 10vh;
+  }
+
+  .div-main-app {
+    margin-top: 20vh;
+  }
+}

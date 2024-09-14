@@ -49,3 +49,38 @@ button:disabled {
 .correct {
   background-color: green;
 }
+
+@media screen and (orientation: landscape) {
+  .h1-theme {
+    margin-top: 7vh;
+  }
+
+  .p-question {
+    margin: 10vh auto;
+  }
+
+  .btn-answer {
+    width: 20vw;
+    height: 10vw;
+    font-size: 2em;
+    padding: 10px 20px;
+    margin: auto;
+    cursor: pointer;
+  }
+
+  .div-btn-answer {
+    margin: 0 auto;
+  }
+
+  .h1-points {
+    font-size: 4.5em;
+    margin-top: 30vh;
+  }
+
+  .h1-timer {
+    font-size: 4em;
+  }
+
+
+
+}
