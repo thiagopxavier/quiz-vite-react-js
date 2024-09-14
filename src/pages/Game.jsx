@@ -6,6 +6,8 @@ import '../styles/Game.css'
 function Game() {
   const [timer, setTimer] = useState(5);
   const [points, setPoints] = useState(0);
+  const [isCorrect, setIsCorrect] = useState();
+  const [isWrong, setIsWrong] = useState();
   const [quizData, setQuizData] = useState({});
   const [questionIndex, setQuestionIndex] = useState(0);
   const location = useLocation();
@@ -33,9 +35,18 @@ function Game() {
 
   const handleButton = (answer) => {
     if (answer === quizData[questionIndex].correct) {
-      setPoints(points + 5)
-    };
-    setQuestionIndex(questionIndex + 1)
+      setPoints(points + 5);
+      setIsCorrect(true)
+
+    } else {
+      setIsWrong(answer);
+    }
+
+    setTimeout(() => {
+      setQuestionIndex(questionIndex + 1);
+      setIsCorrect(null);
+      setIsWrong(null);
+    }, 3000);
 
   }
 
@@ -71,14 +82,17 @@ function Game() {
       <div className="div-btn-answer">
         {quizData[questionIndex].answers.map((answer, index) => (
           <button
-            className="btn-answer"
+            className={` btn-answer
+              ${quizData[questionIndex].correct === answer && isCorrect ? 'correct' : quizData[questionIndex].correct != answer && isWrong === answer ? 'wrong' : ''}`}
+            disabled={isCorrect || isWrong}
+
             key={index}
             onClick={() => handleButton(answer)}
           >
             {answer}
           </button>
         ))}
-      </div>
+      </div >
     </>
   );
 }

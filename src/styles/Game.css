@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+button:disabled {
+  color: white;
+}
+
 .div-btn-answer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -36,4 +40,12 @@
 
   margin: auto;
   margin-top: 20vw;
+}
+
+.wrong {
+  background-color: red;
+}
+
+.correct {
+  background-color: green;
 }
