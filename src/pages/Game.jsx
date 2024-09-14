@@ -7,11 +7,12 @@ function Game() {
   const [timer, setTimer] = useState(5);
   const [points, setPoints] = useState(0);
   const [isCorrect, setIsCorrect] = useState();
+  const [error, setError] = useState(null);
   const [isWrong, setIsWrong] = useState();
   const [quizData, setQuizData] = useState({});
   const [questionIndex, setQuestionIndex] = useState(0);
   const location = useLocation();
-  const { theme } = location.state;
+  const theme = location.state?.theme;
 
   useEffect(() => {
     const themeData = getData();
@@ -30,6 +31,13 @@ function Game() {
   const getData = () => {
     const data = localStorage.getItem('quizData');
     const themeData = JSON.parse(data);
+
+    if (!themeData || !themeData[theme]) {
+      setError('Algo deu errado!');
+      return [];
+    }
+
+
     return themeData[theme].questions;
   }
 
@@ -48,6 +56,17 @@ function Game() {
       setIsWrong(null);
     }, 3000);
 
+  }
+
+  if (error) {
+    return (
+      <>
+        <h1>{error}</h1>
+        <Link to="/">
+          <button>Voltar</button>
+        </Link>
+      </>
+    );
   }
 
   if (timer >= 0) {
